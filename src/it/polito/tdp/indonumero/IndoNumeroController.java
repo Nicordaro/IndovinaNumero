@@ -57,6 +57,9 @@ public class IndoNumeroController {
     	boxGioco.setDisable(false);
     	txtCurrent.setText(String.format("%d", this.tentativi));
     	txtMax.setText(String.format("%d", this.TMAX));
+    	txtLog.clear();
+    	txtTentativo.clear();
+    	txtLog.setText(String.format("Indovina un numero tra %d e %d\n", 1, this.NMAX));
     }
 
     @FXML
@@ -69,12 +72,46 @@ public class IndoNumeroController {
     	}
     	try {
     	int num = Integer.parseInt(numS);
-    	// numero è effettivamente un intero
+    	// il numero è effettivamente un intero
+    	if (num==this.segreto) {
+    		// ha indovinato
+    		txtLog.appendText("Hai vinto!\n");
+    		//"chiudi" la partita
+    		btnNuova.setDisable(false);
+    		boxGioco.setDisable(true);
+    		this.inGame=false;
+    	} else {
+    		this.tentativi++;
+        	txtCurrent.setText(String.format("%d", this.tentativi));
+        	
+        	if(this.tentativi==this.TMAX) {
+        		//ha perso
+        		txtLog.appendText(String.format("Hai perso! Il numero era: %d\n", this.segreto));
+        		//"chiudi" la partita
+        		btnNuova.setDisable(false);
+        		boxGioco.setDisable(true);
+        		this.inGame=false;
+        	} else {
+        		//sono ancora in gioco
+        		if(num<this.segreto) {
+        			// troppo basso
+        			txtLog.appendText("Troppo basso.\n");
+        		} else {
+        			// troppo alto
+        			txtLog.appendText("Troppo alto.\n");
+        		}
+        	}
+    		
+    		
+    	}
+    	
+    	
     	}
     	catch(NumberFormatException ex) {
     		txtLog.appendText("Il dato inserito non è numerico!\n");
     		return;
     	}
+    	
     	
 
     }
