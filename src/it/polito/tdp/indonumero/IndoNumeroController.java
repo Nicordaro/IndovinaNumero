@@ -93,44 +93,7 @@ public class IndoNumeroController {
     				btnNuova.setDisable(false);
         			boxGioco.setDisable(true);
     			
-    		}
-//    		
-//    		
-//   		if(num==this.segreto) {
-//  			// ha indovinato
-//    			txtLog.appendText("Hai vinto!\n");
-//    			
-//    			// "chiudi" la partita
-//    			btnNuova.setDisable(false);
-//    			boxGioco.setDisable(true);
-//    			this.inGame = false ;
-//    		} else {
-//    			// tentativo errato
-//    			this.tentativi++ ;
-//    	    	txtCurrent.setText(String.format("%d", this.tentativi));
-//    	    	
-//    	    	if (this.tentativi==this.TMAX) {
-//    	    		// ha perso
-//    	    		txtLog.appendText(
-//    	    				String.format("Hai perso! Il numero era: %d\n",
-//    	    						this.segreto));
-//        			// "chiudi" la partita
-//        			btnNuova.setDisable(false);
-//        			boxGioco.setDisable(true);
-//        			this.inGame = false ;
-//    	    	} else {
-//    	    		// sono ancora in gioco
-//    	    		if(num<segreto) {
-//    	    			// troppo basso
-//    	    			txtLog.appendText("Troppo basso\n");
-//    	    		} else {
-//						// troppo alto
-//    	    			txtLog.appendText("Troppo alto\n");
-//    	    		}
-//    	    	}
-//    		}
-//    	
-//    	
+    		}  	
     	}
     	catch(NumberFormatException ex) {
     		txtLog.appendText("Il dato inserito non è numerico!\n");
